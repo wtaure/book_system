@@ -1,0 +1,255 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="xitong1.master.cs" Inherits="xitong1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/bootstrap/jquery-3.3.1.js" type="text/javascript"></script>
+    <script type="text/jscript" src="js/bootstrap/bootstrap.js"></script>
+    <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $("#nav>li").hover(function () {
+                 $(this).children("ul").fadeIn(200);
+
+             }, function () {
+                 $(this).children("ul").fadeOut(200);
+             });
+             $(function () {
+                 $("#ContentPlaceHolder1_G1 tr:odd").addClass("odd");
+                 $("#ContentPlaceHolder1_G1 tr:even").addClass("even");
+             });
+
+
+
+
+         });
+     </script>
+      <style type="text/css">
+           .zhuxiao
+        {
+                background: none;
+    border: none;
+            }
+        *
+        {
+            
+            padding:0px;
+            margin:0px;
+            }
+        body
+        {
+           
+           
+            background-repeat:repeat;
+            margin:0px auto;
+           
+            width:1020px;
+            background-attachment:fixed;  
+            
+           
+            }
+            #box
+            {background-image:url(img/b1.gif);
+              box-shadow: 5px 5px 2px #ccc;
+                }
+            #banner
+            {width:1010px;
+             padding:5px;
+             border:1px solid #ededed;
+             background-image:url(img/banner2.jpg);
+             background-position:center top;
+             height:160px;
+             }
+              #banner p
+              {
+                  font-family:华文中宋;
+                  font-size:48px;
+                  color:White;
+                  margin-left:5px;
+                  margin-top:40px;
+                  
+                  }
+             #navdiv{
+              margin-top:5px;}
+             #nav
+             {
+                 
+                 padding-top:5px;
+                 padding-bottom:5px;
+                 background-image:url(img/beijing4.jpg);
+                 background-repeat:repeat-x;
+                
+               
+                 }
+          #nav  .first
+          {
+             display:inline-block;
+             padding:5px 18px 5px 18px;
+             border-right:1px solid #ededed;
+             list-style:none;
+             font-size:16px;
+             font-family:宋体;
+             color:#999;
+             position:relative;
+             
+             }
+              .first  a
+               {
+                   text-decoration:none;
+                   color:#666;
+                  
+                   }
+              .first a:hover
+               {
+                   text-decoration:none;
+                   color:AppWorkspace;
+                   
+                    
+                   } 
+           #nav   li ul 
+              {
+                 
+                 position:absolute;
+                 display:none;
+                 top:33px;
+                 margin:0px 0px 0px -25px;
+                 
+                 
+                
+                  }  
+                  
+                th
+                {
+                    width:400px;
+                    
+                    }
+              #nav   li ul  li
+              {
+                  width:100px;
+                 border-bottom:1px inset;
+                  list-style:none;
+                  margin-bottom:1px;
+                  padding:10px 10px 10px 10px; 
+                  background-image:url(img/beijing6.jpg);
+                 background-repeat:repeat-x;
+                 font-size:14px;
+                 font-family:微软雅黑;
+               
+                 
+                   } 
+                    #nav   li ul  li:hover
+                    {
+                          background-image:url(img/beijing5.jpg); 
+                       
+                       box-shadow: 2px 3px 1px #cc3366;
+                      
+                        }
+                        .odd
+                        {
+                            background-color:#aaf9e4;
+                            
+                            
+                            
+                           }
+                        .even
+                        {
+                            background-color:#fff;
+                              
+                            }   
+                        </style>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+     <div id="banner">
+   <p>书籍管理</p>
+    </div>
+    <div id="navdiv">
+    <ul id="nav">
+    <li class="first"><a href="houtai.aspx">首页</a></li>
+     <li  class="first"><a href="bookgridviewpaged.aspx">书籍信息</a></li>
+    <li  class="first"><a href="newssearch.aspx">新闻信息</a></li>
+    <li  class="first"><a href="shangchuan.aspx">文件上传</a></li>
+    <li  class="first"><a href="#">编辑书籍信息</a>
+    <ul>
+    <li class="second"><a href="houtaibookadd.aspx">新增</a></li>
+     <li class="second"><a href="bookgridviewedit.aspx">修改</a></li>
+     <li class="second"><a href="bookgridviewdel.aspx">删除</a></li>
+    
+</ul>
+   
+    </li>
+    <li  class="first"><a href="#">编辑新闻信息</a>
+     <ul>
+     <li class="second"><a href="newsadd.aspx">新增</a></li>
+      <li class="second"><a href="newsedit.aspx">修改</a></li>
+        <li class="second"><a href="newsdel.aspx">删除</a></li>
+     </ul>
+    </li>
+   
+     <li  class="first"><a href="#">编辑用户信息</a>
+     <ul>
+     <li class="second"><a href="#">新增</a></li>
+      <li class="second"><a href="#">修改</a></li>
+        <li class="second"><a href="DELuser.aspx">删除</a></li>
+     </ul>
+     </li>
+     <% if (Session["user"] != null)
+                               {
+                                   Response.Write("<a href='javascript:void(0)'>" + Session["user"].ToString() + "</a>");
+                               }
+                               else {
+                                   Response.Write("<a href='houtailogin.aspx'>登陆</a>");
+                               }
+                               
+                            %>
+
+                             <% if (Session["user"] != null)
+                               {%>
+                                  <asp:Button ID="Button2" runat="server" Text="注销" OnClick="zhuxiao_Click"  CssClass="zhuxiao"/>
+                              <% }
+                               else {
+                                Response.Write("");
+                               }
+                               
+                            %>
+
+
+    <li  class="first" id="last"><a href="#">联系我们</a></li>
+
+    </ul>
+
+    </div>
+    <div>
+    <hr />
+     <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+       
+     <p style=" margin:10px; color:#777; font-family:微软雅黑;" >欢迎登录书籍管理系统。现在时间：<%=DateTime.Now.ToLongTimeString() %></p>
+           
+        <asp:Timer ID="Timer1" runat="server" Interval="1000" ></asp:Timer>
+
+     </ContentTemplate></asp:UpdatePanel>
+    
+
+    </div>
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

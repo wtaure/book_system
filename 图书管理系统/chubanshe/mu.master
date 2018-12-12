@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mu.master.cs" Inherits="mu" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .zhuxiao
+        {
+                background: none;
+    border: none;
+            }
+        
+    </style>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/bootstrap/jquery-3.3.1.js" type="text/javascript"></script>
+    <script type="text/jscript" src="js/bootstrap/bootstrap.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div>
+        <div id="con">
+            <div class="nav1">
+                <div class="container">
+                    <div class="nav_left">
+                        <div class="logo">
+                            <a href="index.aspx">XX出版社</a></div>
+                        <ul>
+                            <li class="fa fa-home"><a href="index.aspx">首页</a></li>
+                            <li class="fa fa-newspaper-o"><a href="newscenter.aspx">新闻中心</a></li>
+                            <li class="fa fa-download"><a href="download.aspx">下载中心</a></li>
+                            <li class="fa fa-book"><a href="bookcenter.aspx">图书中心</a></li>
+                            <li class="fa fa-bookmark"><a href="ebook.aspx">数字图书中心</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav_right">
+                        <a href="login.aspx">
+                         <% if (Session["user"] != null)
+                               {
+                                   Response.Write("<a href='javascript:void(0)'>" + Session["user"].ToString() + "</a>");
+                               }
+                               else {
+                                   Response.Write("<a href='login.aspx'>登陆</a>");
+                               }
+                               
+                            %>
+                        
+                        
+                        </a> 
+                        
+                            <%
+                                
+                               %>
+                         
+                         <% if (Session["user"] != null)
+                               {%>
+                                  <asp:Button ID="Button2" runat="server" Text="注销" OnClick="zhuxiao_Click"  CssClass="zhuxiao"/>
+                              <% }
+                               else {
+                                Response.Write("<a href=\"yonghuzhuce.aspx\" >注册</a>");
+                               }
+                               
+                            %>
+                    
+                       
+                        
+                        
+                    </div>
+                    <div style="width: 400px; position: relative; float: right; top: -63px; right: -180px;">
+                        <asp:TextBox ID="TextBox1" runat="server" class="form-control mr-sm-5" Style="float: left;
+                            width: 230px; margin-right: 0px !important; border-radius: 0.25rem 0 0 0.25rem;"></asp:TextBox>
+                        <div style="float: left;">
+                            <asp:DropDownList ID="DropDownList1" runat="server" Style="display: block; width: 100%;
+                                padding: 0.375rem 0.75rem; font-size: 1rem; line-height: 1.5; color: #495057;
+                                background-color: #fff; background-clip: padding-box; border-radius: 0 0.25rem  0.25rem 0;
+                                border: 1px solid black; <%--border-radius: 0.25rem; --%>
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;">
+                                <asp:ListItem Value="first">bookid</asp:ListItem>
+                                <asp:ListItem Value="second">author</asp:ListItem>
+                                <asp:ListItem Value="third">title</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <asp:SqlDataSource ID="search_rule" runat="server" ConnectionString="<%$ ConnectionStrings:chubansheConnectionString %>"
+                            SelectCommand="SELECT [search_rule] FROM [search_rule]"></asp:SqlDataSource>
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="搜索" class="btn btn-outline-success my-2 my-sm-0"
+                            Style="text-align: center;" />&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
